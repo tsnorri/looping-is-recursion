@@ -25,8 +25,10 @@
       (if (= (first seq1) (first seq2))
         (if (and (empty? r1) (empty? r2))
           true
-          (recur r1 r2)
-          )
+          (if (or (empty? r1) (empty? r2))
+            false
+            (recur r1 r2)
+          ))
         false)))
 
 
